@@ -1,0 +1,16 @@
+name: Infrastructure Decommission
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  decommission:
+    uses: FA9-lab/platform-workflows/.github/workflows/terraform-destroy.yml@feature/deployment-repo-plan
+    with:
+      deployment-name: "storage-lab12-dev-ylis8s-CHG0012"
+      working-directory: "."
+    secrets: inherit
